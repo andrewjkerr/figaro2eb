@@ -88,7 +88,7 @@ module Figaro2eb
     end
 
     def check_if_value_empty key, value
-      if value.empty?
+      if value.is_a?(String) && value.empty?
         puts "The value of #{key} is empty. You will have to manually add this to the EB configuration."
       end
     end

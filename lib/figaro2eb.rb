@@ -24,12 +24,22 @@ module Figaro2eb
 
     # Load in YAML file
     def load_application_yml
-      @keys = YAML.load_file('config/application.yml')
+      begin
+        @keys = YAML.load_file('config/application.yml')
+      rescue
+        puts "Cannot find config/application.yml. Are you in your Rails root directory?"
+        exit
+      end
     end
 
     # Create bash script
     def create_script
-      @script = File.open('create-env-vars.sh', 'w')
+      begin
+        @script = File.open('create-env-vars.sh', 'w')
+      rescue
+        puts "Cannot open create-env-vars.sh. Please try again."
+        exit
+      end
     end
 
     # Add the script to your .gitignore

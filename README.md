@@ -1,5 +1,7 @@
 # Figaro2eb
 
+[![Gem Version](https://badge.fury.io/rb/figaro2eb.svg)](http://badge.fury.io/rb/figaro2eb)
+
 Generates a shell script from Figaro's application.yml to set environment variables on an Elastic Beanstalk instance.
 
 ## Installation

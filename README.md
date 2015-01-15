@@ -32,7 +32,7 @@ Or install it yourself as:
 
 3. Run it!
     ```
-    figaro2eb target\_rails\_env target\_eb\_env
+    figaro2eb target_rails_env target_eb_env
     ```
 
 ## Contributing

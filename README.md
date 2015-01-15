@@ -1,6 +1,6 @@
 # Figaro2eb
 
-TODO: Write a gem description
+Generates a shell script from Figaro's application.yml to set environment variables on an Elastic Beanstalk instance.
 
 ## Installation
 
@@ -20,7 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Install the gem
+    ```
+    gem install figaro2eb
+    ```
+
+2. Go to your Rails app's root directory
+    ```
+    cd /path/to/application
+    ```
+
+3. Run it!
+    ```
+    figaro2eb target\_rails\_env target\_eb\_env
+    ```
 
 ## Contributing
 

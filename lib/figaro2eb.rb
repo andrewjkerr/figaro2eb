@@ -46,7 +46,7 @@ module Figaro2eb
     def add_script_to_gitignore
       if File.readlines(".gitignore").grep(/create-env-vars.sh/).size == 0
         open('.gitignore', 'a') do |file|
-          file << "create-env-vars.sh\n"
+          file << "\ncreate-env-vars.sh\n"
         end
       end
     end
@@ -82,8 +82,16 @@ module Figaro2eb
 
     def push_environment_keys key
       @keys[key].each do |key, value|
-        @script.write("#{key}='#{value}' ")
+        self.check_value key, value
         self.check_if_value_empty key, value
+      end
+    end
+
+    def check_value key, value
+      if (/^[a-zA-Z0-9\-.:\/@+-]*$/.match(value))
+        @script.write("#{key}='#{value}' ")
+      else
+        puts "The value of #{key} contains special characters that are not allowed by setvar. You will have to manually add this to the EB configuration."
       end
     end
 
